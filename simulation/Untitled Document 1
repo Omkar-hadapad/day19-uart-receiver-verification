@@ -1,0 +1,219 @@
+ncsim> 
+ncsim> database -open waves -into waves.shm -default
+Created default SHM database waves
+ncsim> probe -create -shm day19_tb.baud_count day19_tb.baud_enable day19_tb.baud\
+_tick day19_tb.bit_clear day19_tb.bit_count day19_tb.bit_enable day19_tb.bit_las\
+t day19_tb.clk day19_tb.data_bit_count day19_tb.data_clear day19_tb.data_load da\
+y19_tb.data_reg_out day19_tb.fa_a day19_tb.fa_b day19_tb.fa_carry day19_tb.fa_ci\
+n day19_tb.fa_sum day19_tb.fail_count day19_tb.framing_error_seen day19_tb.fsm_b\
+aud_tick day19_tb.fsm_last_bit day19_tb.fsm_next_state day19_tb.fsm_rx day19_tb.\
+fsm_state day19_tb.gate_a day19_tb.gate_and_y day19_tb.gate_b day19_tb.gate_nand\
+_y day19_tb.gate_nor_y day19_tb.gate_not_y day19_tb.gate_or_y day19_tb.gate_xor_\
+y day19_tb.ha_a day19_tb.ha_b day19_tb.ha_carry day19_tb.ha_sum day19_tb.i day19\
+_tb.inc_a day19_tb.inc_y day19_tb.logic_baud_tick day19_tb.logic_busy day19_tb.l\
+ogic_clear_data day19_tb.logic_error day19_tb.logic_rx day19_tb.logic_sample_dat\
+a day19_tb.logic_state day19_tb.logic_valid day19_tb.pass_count day19_tb.reset d\
+ay19_tb.rtl_busy day19_tb.rtl_data day19_tb.rtl_error day19_tb.rtl_valid day19_t\
+b.rx day19_tb.struct_busy day19_tb.struct_data day19_tb.struct_error day19_tb.st\
+ruct_valid day19_tb.sync_rx day19_tb.sync_rx_out day19_tb.test_data day19_tb.top\
+_busy day19_tb.top_data day19_tb.top_error day19_tb.top_valid
+Created probe 1
+ncsim> run
+
+==================================================
+TEST 1 - BASIC GATES
+==================================================
+PASS |                           AND 00 | Expected=0 Actual=0
+PASS |                            OR 00 | Expected=0 Actual=0
+PASS |                            NOT 0 | Expected=1 Actual=1
+PASS |                           XOR 00 | Expected=0 Actual=0
+PASS |                          NAND 00 | Expected=1 Actual=1
+PASS |                           NOR 00 | Expected=1 Actual=1
+PASS |                           AND 01 | Expected=0 Actual=0
+PASS |                            OR 01 | Expected=1 Actual=1
+PASS |                            NOT 0 | Expected=1 Actual=1
+PASS |                           XOR 01 | Expected=1 Actual=1
+PASS |                          NAND 01 | Expected=1 Actual=1
+PASS |                           NOR 01 | Expected=0 Actual=0
+PASS |                           AND 10 | Expected=0 Actual=0
+PASS |                            OR 10 | Expected=1 Actual=1
+PASS |                            NOT 1 | Expected=0 Actual=0
+PASS |                           XOR 10 | Expected=1 Actual=1
+PASS |                          NAND 10 | Expected=1 Actual=1
+PASS |                           NOR 10 | Expected=0 Actual=0
+PASS |                           AND 11 | Expected=1 Actual=1
+PASS |                            OR 11 | Expected=1 Actual=1
+PASS |                            NOT 1 | Expected=0 Actual=0
+PASS |                           XOR 11 | Expected=0 Actual=0
+PASS |                          NAND 11 | Expected=0 Actual=0
+PASS |                           NOR 11 | Expected=0 Actual=0
+
+==================================================
+TEST 2 - HALF ADDER
+==================================================
+PASS |                           HA SUM | Expected=0 Actual=0
+PASS |                         HA CARRY | Expected=0 Actual=0
+PASS |                           HA SUM | Expected=1 Actual=1
+PASS |                         HA CARRY | Expected=0 Actual=0
+PASS |                           HA SUM | Expected=1 Actual=1
+PASS |                         HA CARRY | Expected=0 Actual=0
+PASS |                           HA SUM | Expected=0 Actual=0
+PASS |                         HA CARRY | Expected=1 Actual=1
+
+==================================================
+TEST 3 - FULL ADDER
+==================================================
+PASS |                           FA SUM | Expected=0 Actual=0
+PASS |                         FA CARRY | Expected=0 Actual=0
+PASS |                           FA SUM | Expected=1 Actual=1
+PASS |                         FA CARRY | Expected=0 Actual=0
+PASS |                           FA SUM | Expected=1 Actual=1
+PASS |                         FA CARRY | Expected=0 Actual=0
+PASS |                           FA SUM | Expected=0 Actual=0
+PASS |                         FA CARRY | Expected=1 Actual=1
+PASS |                           FA SUM | Expected=1 Actual=1
+PASS |                         FA CARRY | Expected=0 Actual=0
+PASS |                           FA SUM | Expected=0 Actual=0
+PASS |                         FA CARRY | Expected=1 Actual=1
+PASS |                           FA SUM | Expected=0 Actual=0
+PASS |                         FA CARRY | Expected=1 Actual=1
+PASS |                           FA SUM | Expected=1 Actual=1
+PASS |                         FA CARRY | Expected=1 Actual=1
+
+==================================================
+TEST 4 - 4-BIT INCREMENTER
+==================================================
+PASS |                      INCREMENTER | Expected=1 Actual=1
+PASS |                      INCREMENTER | Expected=2 Actual=2
+PASS |                      INCREMENTER | Expected=3 Actual=3
+PASS |                      INCREMENTER | Expected=4 Actual=4
+PASS |                      INCREMENTER | Expected=5 Actual=5
+PASS |                      INCREMENTER | Expected=6 Actual=6
+PASS |                      INCREMENTER | Expected=7 Actual=7
+PASS |                      INCREMENTER | Expected=8 Actual=8
+PASS |                      INCREMENTER | Expected=9 Actual=9
+PASS |                      INCREMENTER | Expected=a Actual=a
+PASS |                      INCREMENTER | Expected=b Actual=b
+PASS |                      INCREMENTER | Expected=c Actual=c
+PASS |                      INCREMENTER | Expected=d Actual=d
+PASS |                      INCREMENTER | Expected=e Actual=e
+PASS |                      INCREMENTER | Expected=f Actual=f
+PASS |                      INCREMENTER | Expected=0 Actual=0
+
+==================================================
+TEST 5 - RX SYNCHRONIZER
+==================================================
+PASS |           SYNC FIRST STAGE DELAY | Expected=1 Actual=1
+PASS |                  SYNC OUTPUT LOW | Expected=0 Actual=0
+PASS |                 SYNC OUTPUT HIGH | Expected=1 Actual=1
+
+==================================================
+TEST 6 - BAUD COUNTER
+==================================================
+PASS |                     BAUD COUNT 1 | Expected=1 Actual=1
+PASS |                     BAUD COUNT 2 | Expected=2 Actual=2
+PASS |                     BAUD COUNT 3 | Expected=3 Actual=3
+PASS |                        BAUD TICK | Expected=1 Actual=1
+PASS |                    BAUD ROLLOVER | Expected=0 Actual=0
+
+==================================================
+TEST 7 - DATA REGISTER
+==================================================
+PASS |                 DATA REGISTER A5 | Expected=a5 Actual=a5
+
+==================================================
+TEST 8 - BIT COUNTER
+==================================================
+PASS |                      BIT COUNT 7 | Expected=7 Actual=7
+PASS |                         LAST BIT | Expected=1 Actual=1
+
+==================================================
+TEST 9 - RX LOGIC
+==================================================
+PASS |                  LOGIC IDLE BUSY | Expected=0 Actual=0
+PASS |                LOGIC CLEAR START | Expected=1 Actual=1
+PASS |                LOGIC SAMPLE DATA | Expected=1 Actual=1
+PASS |                  LOGIC DATA BUSY | Expected=1 Actual=1
+PASS |                       VALID STOP | Expected=1 Actual=1
+PASS |                 NO FRAMING ERROR | Expected=0 Actual=0
+PASS |             INVALID STOP VALID=0 | Expected=0 Actual=0
+PASS |             INVALID STOP ERROR=1 | Expected=1 Actual=1
+
+==================================================
+TEST 10 - FSM
+==================================================
+PASS |                   FSM RESET IDLE | Expected=0 Actual=0
+PASS |                        FSM START | Expected=1 Actual=1
+PASS |                         FSM DATA | Expected=2 Actual=2
+PASS |                         FSM STOP | Expected=3 Actual=3
+
+==================================================
+TEST 11 - RESET SAFETY
+==================================================
+PASS |                STRUCT RESET DATA | Expected=00 Actual=00
+PASS |                   RTL RESET DATA | Expected=00 Actual=00
+PASS |                   TOP RESET DATA | Expected=00 Actual=00
+PASS |                STRUCT RESET BUSY | Expected=0 Actual=0
+PASS |                   RTL RESET BUSY | Expected=0 Actual=0
+PASS |                   TOP RESET BUSY | Expected=0 Actual=0
+
+==================================================
+TEST 12 - COMPLETE UART FRAME A5
+==================================================
+PASS |                   STRUCT DATA A5 | Expected=a5 Actual=a5
+PASS |                      RTL DATA A5 | Expected=a5 Actual=a5
+PASS |                      TOP DATA A5 | Expected=a5 Actual=a5
+PASS |             STRUCT BUSY AFTER A5 | Expected=0 Actual=0
+PASS |                RTL BUSY AFTER A5 | Expected=0 Actual=0
+PASS |                TOP BUSY AFTER A5 | Expected=0 Actual=0
+
+==================================================
+TEST 13 - MULTIPLE UART DATA PATTERNS
+==================================================
+PASS |                       PATTERN 00 | Expected=00 Actual=00
+PASS |                       PATTERN FF | Expected=ff Actual=ff
+PASS |                       PATTERN 55 | Expected=55 Actual=55
+PASS |                       PATTERN AA | Expected=aa Actual=aa
+PASS |                       PATTERN 3C | Expected=3c Actual=3c
+PASS |                       PATTERN C3 | Expected=c3 Actual=c3
+
+==================================================
+TEST 14 - BACK-TO-BACK FRAMES
+==================================================
+PASS |               BACK-TO-BACK FIRST | Expected=3c Actual=3c
+PASS |              BACK-TO-BACK SECOND | Expected=c3 Actual=c3
+
+==================================================
+TEST 15 - INVALID STOP
+==================================================
+PASS |           FRAMING ERROR DETECTED | Expected=1 Actual=1
+
+==================================================
+TEST 16 - STRUCTURAL VS RTL
+==================================================
+PASS |               STRUCT VS RTL DATA | Expected=5a Actual=5a
+PASS |               STRUCT VS RTL BUSY | Expected=0 Actual=0
+PASS |              STRUCT VS RTL VALID | Expected=0 Actual=0
+PASS |              STRUCT VS RTL ERROR | Expected=0 Actual=0
+
+==================================================
+TEST 17 - FINAL IDLE SAFETY
+==================================================
+PASS |                   FINAL BUSY = 0 | Expected=0 Actual=0
+PASS |                  FINAL VALID = 0 | Expected=0 Actual=0
+PASS |                  FINAL ERROR = 0 | Expected=0 Actual=0
+
+==================================================
+DAY 19 UART RECEIVER TEST COMPLETE
+==================================================
+TOTAL PASS = 115
+TOTAL FAIL = 0
+
+**********************************************
+*          ALL TESTS PASSED                 *
+*      DAY 19 UART RX VERIFIED              *
+**********************************************
+
+Simulation complete via $finish(1) at time 6156 NS + 0
+./day19_tb.v:1687     $finish;
+ncsim> 
